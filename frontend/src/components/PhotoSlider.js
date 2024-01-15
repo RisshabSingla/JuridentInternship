@@ -14,7 +14,7 @@ export const PhotoSlider = ({ length }) => {
   return (
     <div>
       <img
-        className="max-h-[400px] p-3"
+        className="max-h-[500px] p-3"
         style={{ borderRadius: "55%" }}
         src={`./images/landingImage${currentPhotoIndex + 1}.jpeg`}
         width="600px"
