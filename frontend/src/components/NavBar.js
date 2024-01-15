@@ -24,9 +24,9 @@ function NavBar() {
         <div>
           <div className="">
             <div className="">
-              <ul className={`${screenSize.width > 600 ? "flex" : ""} `}>
+              <ul className={`${screenSize.width > 680 ? "flex" : ""} `}>
                 <li>
-                  {screenSize.width < 600 && (
+                  {screenSize.width < 680 && (
                     <button
                       className="p-2"
                       onClick={() => {
@@ -37,13 +37,13 @@ function NavBar() {
                     </button>
                   )}
                 </li>
-                {screenSize.width > 600 && <NavLinks />}
+                {screenSize.width > 680 && <NavLinks />}
               </ul>
             </div>
           </div>
         </div>
       </div>
-      {screenSize.width < 600 && visible && <NavLinksScreen />}
+      {screenSize.width < 680 && visible && <NavLinksScreen />}
     </div>
   );
 }
