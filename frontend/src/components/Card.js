@@ -2,8 +2,8 @@ function Card({
   heading,
   subheading,
   src,
-  headingsize = "p-2 text-2xl font-bold",
-  subheadingsize = "p-2 text-xl font-bold",
+  headingsize = "p-2 text-xl font-bold",
+  subheadingsize = "p-2 text-lg font-bold",
   date,
 }) {
   return (
