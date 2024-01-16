@@ -16,7 +16,7 @@ function Card({
       <p className={`${subheadingsize}`}>{subheading}</p>
       {date && (
         <div className="m-2 text-center">
-          <span className=" rounded-xl p-2 bg-slate-300"> {date}</span>
+          <p className=" rounded-xl p-2 bg-slate-300"> {date}</p>
         </div>
       )}
       {registration && (
