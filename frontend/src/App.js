@@ -7,6 +7,7 @@ import Events from "./pages/Events";
 import GetInvolved from "./pages/GetInvolved";
 import Projects from "./pages/Projects";
 import NavBar from "./components/NavBar";
+import MissionPage from "./pages/MissionPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="events" element={<Events />} />
           <Route path="getinvolved" element={<GetInvolved />} />
           <Route path="projects" element={<Projects />} />
+          <Route path="ourmission" element={<MissionPage />} />
         </Routes>
       </BrowserRouter>
     </div>

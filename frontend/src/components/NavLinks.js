@@ -8,6 +8,8 @@ function NavLinks() {
       <NavLink href={"contactus"}> Contact Us</NavLink>
       <NavLink href={"getinvolved"}> Get Involved</NavLink>
       <NavLink href={"projects"}> Projects</NavLink>
+      <NavLink href={"ourmission"}> Our Mission</NavLink>
+      <NavLink href={"events"}> Events</NavLink>
     </>
   );
 }
