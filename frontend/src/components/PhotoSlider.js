@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const PhotoSlider = ({ length }) => {
+export const PhotoSlider = ({ length, width = "600px" }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   useEffect(() => {
@@ -12,13 +12,13 @@ export const PhotoSlider = ({ length }) => {
   }, [currentPhotoIndex, length]);
 
   return (
-    <div>
+    <>
       <img
         className="max-h-[400px] p-3"
         style={{ borderRadius: "55%" }}
         src={`./images/landingImage${currentPhotoIndex + 1}.jpeg`}
-        width="600px"
+        width={width}
       />
-    </div>
+    </>
   );
 };

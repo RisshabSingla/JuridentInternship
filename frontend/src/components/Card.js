@@ -12,7 +12,7 @@ function Card({
       <div>
         <img className="max-h-[200px] w-full" src={src} alt="" />
       </div>
-      <p className={`${headingsize}`}>{heading}</p>
+      <p className={`${headingsize} `}>{heading}</p>
       <p className={`${subheadingsize}`}>{subheading}</p>
       {date && (
         <div className="m-2 text-center">

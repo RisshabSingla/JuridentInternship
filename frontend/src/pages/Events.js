@@ -1,4 +1,6 @@
 import Card from "../components/Card";
+import { useState } from "react";
+import OverLay from "../components/OverLay";
 
 const allEvents = [
   {
@@ -75,31 +77,39 @@ const allEvents = [
 ];
 
 function Events() {
+  const [overLayText, setOverLayText] = useState("");
   return (
-    <div>
-      {" "}
-      <div className="text-3xl text-blue-900 font-extrabold text-center">
-        Upcoming Events & Workshops
-      </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 p-3">
-        {/* heading,
+    <>
+      {overLayText !== "" && (
+        <OverLay overLayText={overLayText} setOverLayText={setOverLayText} />
+      )}
+      <div className={overLayText !== "" && "opacity-[.10]"}>
+        {" "}
+        <div className="text-3xl text-blue-900 font-extrabold text-center">
+          Upcoming Events & Workshops
+        </div>
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 p-3">
+          {/* heading,
   subheading,
   src,
   headingsize = "p-2 text-xl font-bold",
   subheadingsize = "p-2 text-lg font-bold",
   date, */}
-        {allEvents.map((event) => (
-          <Card
-            heading={event.name}
-            subheading={event.type}
-            src="./images/nature.jpeg"
-            date={event.date}
-            subheadingsize="text-center text-lg"
-            registration={event.registration}
-          />
-        ))}
+          {allEvents.map((event) => (
+            <button onClick={() => setOverLayText(event)}>
+              <Card
+                heading={event.name}
+                subheading={event.type}
+                src="./images/nature.jpeg"
+                date={event.date}
+                subheadingsize="text-center text-lg"
+                registration={event.registration}
+              />
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
