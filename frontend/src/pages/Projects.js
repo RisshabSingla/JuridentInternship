@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
+import OverLay from "../components/OverLay";
 
 const projects = [
   {
@@ -50,6 +51,7 @@ function Projects() {
   const [showProjects, setShowProjects] = useState(projects);
   const [statusFilters, setStatusFilters] = useState([]);
   const [categoryFilters, setCategoryFilters] = useState([]);
+  const [overLayText, setOverLayText] = useState("");
 
   useEffect(() => {
     async function func() {
@@ -93,95 +95,102 @@ function Projects() {
   }
 
   function handleStatusClick(e) {
-    console.log(e.target.name);
-    console.log(e.target.checked);
+    // console.log(e.target.name);
+    // console.log(e.target.checked);
     if (e.target.checked) {
       if (!statusFilters.includes(e.target.name)) {
         setStatusFilters([...statusFilters, e.target.name]);
-        console.log(statusFilters);
+        // console.log(statusFilters);
       }
     } else {
-      console.log("inside");
+      // console.log("inside");
       if (statusFilters.includes(e.target.name)) {
         setStatusFilters(() =>
           statusFilters.filter((filter) => filter !== e.target.name)
         );
-        console.log(statusFilters);
+        // console.log(statusFilters);
       }
     }
   }
   return (
-    <div>
-      <div className="text-3xl text-blue-900 font-extrabold text-center">
-        Projects
-      </div>
-      <div className=" p-3 md:flex text-center">
-        <div className="md:w-1/6 border-r-4">
-          <div className="text-2xl text-center">Filters</div>
-          <div className="text-xl text-center p-2"></div>
-          <div className="">
-            <p>Status</p>
-            <div className="text-left">
-              <input
-                type="checkbox"
-                name="Ongoing"
-                onClick={(e) => handleStatusClick(e)}
-              ></input>
-              <label> Ongoing</label>
+    <>
+      {overLayText !== "" && (
+        <OverLay overLayText={overLayText} setOverLayText={setOverLayText} />
+      )}
+      <div className={overLayText !== "" && "opacity-[.10]"}>
+        <div className="text-3xl text-blue-900 font-extrabold text-center">
+          Projects
+        </div>
+        <div className=" p-3 md:flex text-center">
+          <div className="md:w-1/6 border-r-4">
+            <div className="text-2xl text-center">Filters</div>
+            <div className="text-xl text-center p-2"></div>
+            <div className="">
+              <p>Status</p>
+              <div className="text-left">
+                <input
+                  type="checkbox"
+                  name="Ongoing"
+                  onClick={(e) => handleStatusClick(e)}
+                ></input>
+                <label> Ongoing</label>
+                <br />
+                <input
+                  type="checkbox"
+                  name="Completed"
+                  onClick={(e) => handleStatusClick(e)}
+                ></input>
+                <label> Completed</label>
+              </div>
               <br />
-              <input
-                type="checkbox"
-                name="Completed"
-                onClick={(e) => handleStatusClick(e)}
-              ></input>
-              <label> Completed</label>
+              <p>Category</p>
+              <div className="text-left">
+                <input
+                  type="checkbox"
+                  name="Community Development"
+                  onClick={(e) => handleCategoryClick(e)}
+                ></input>
+                <label> Community Development</label>
+                <br />
+                <input
+                  type="checkbox"
+                  name="Education & Gender Equality"
+                  onClick={(e) => handleCategoryClick(e)}
+                ></input>
+                <label> Education & Gender Equality</label>
+                <br />
+                <input
+                  type="checkbox"
+                  name="Environmental Conservation"
+                  onClick={(e) => handleCategoryClick(e)}
+                ></input>
+                <label> Environmental Conservation</label>
+              </div>
             </div>
-            <br />
-            <p>Category</p>
-            <div className="text-left">
-              <input
-                type="checkbox"
-                name="Community Development"
-                onClick={(e) => handleCategoryClick(e)}
-              ></input>
-              <label> Community Development</label>
-              <br />
-              <input
-                type="checkbox"
-                name="Education & Gender Equality"
-                onClick={(e) => handleCategoryClick(e)}
-              ></input>
-              <label> Education & Gender Equality</label>
-              <br />
-              <input
-                type="checkbox"
-                name="Environmental Conservation"
-                onClick={(e) => handleCategoryClick(e)}
-              ></input>
-              <label> Environmental Conservation</label>
+          </div>
+          <div className="md:w-5/6">
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 p-3">
+              {showProjects &&
+                showProjects.map((project) => {
+                  const subhead = project.description.slice(0, 30) + "...";
+                  return (
+                    <button onClick={() => setOverLayText(project)}>
+                      <Card
+                        src="./images/nature.jpeg"
+                        heading={project.name}
+                        subheading={subhead}
+                        headingsize="text-lg font-bold truncate"
+                        subheadingsize="text-lg"
+                        date={project.date}
+                      />
+                    </button>
+                  );
+                })}
             </div>
           </div>
         </div>
-        <div className="md:w-5/6">
-          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 p-3">
-            {showProjects &&
-              showProjects.map((project) => {
-                const subhead = project.description.slice(0, 50) + "...";
-                return (
-                  <Card
-                    src="./images/nature.jpeg"
-                    heading={project.name}
-                    subheading={subhead}
-                    headingsize="text-lg font-bold"
-                    subheadingsize="text-lg"
-                    date={project.date}
-                  />
-                );
-              })}
-          </div>
-        </div>
       </div>
-    </div>
+    </>
   );
 }
 

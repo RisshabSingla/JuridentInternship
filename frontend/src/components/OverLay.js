@@ -29,12 +29,14 @@ function OverLay({ setOverLayText, overLayText }) {
                 <PhotoSlider length={4} />
               </div>
               <div className="lg:w-1/2">
+                {overLayText.type && (
+                  <div className="p-2 text-lg  font-bold text-center">
+                    Category: {overLayText.type}
+                  </div>
+                )}
                 <div className="p-2 text-lg  font-bold text-center">
                   {overLayText.description}
                 </div>
-                {/* { && (
-                  <div>{overLayText.registration}</div>
-                )} */}
                 {overLayText.registration && (
                   <div className="p-2 text-lg  font-bold text-center">
                     <p>Registration: {overLayText.registration}</p>

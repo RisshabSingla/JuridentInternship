@@ -8,7 +8,7 @@ function Card({
   registration,
 }) {
   return (
-    <div className="border-4 p-2 ">
+    <div className="border-4 p-2">
       <div>
         <img className="max-h-[200px] w-full" src={src} alt="" />
       </div>
