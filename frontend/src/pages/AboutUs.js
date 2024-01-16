@@ -1,3 +1,4 @@
+import Card from "../components/Card";
 import { PhotoSlider } from "../components/PhotoSlider";
 
 function AboutUs() {
@@ -68,9 +69,55 @@ function AboutUs() {
             </p>
           </div>
           <div className="md:w-1/2 p-3">
-            {" "}
             <PhotoSlider length={4} />{" "}
           </div>
+        </div>
+      </div>
+      <div className="text-center">
+        <p className="text-blue-900 p-2 text-3xl font-extrabold">
+          Our Team Members{" "}
+        </p>
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4 p-3 mx-2">
+          <Card
+            src="./images/woman.jpeg"
+            heading={"Ms. Lindsey"}
+            subheading={"Program Manager"}
+          />
+          <Card
+            src="./svgs/man.svg"
+            heading={"Mr. Kingston"}
+            subheading={"Field Officer"}
+          />
+          <Card
+            src="./images/woman.jpeg"
+            heading={"Mrs. Mariam"}
+            subheading={"Advocacy Officer"}
+          />
+          <Card
+            src="./svgs/man.svg"
+            heading={"Mr. Rylee"}
+            subheading={"Fundraiser"}
+          />
+          <Card
+            src="./svgs/man.svg"
+            heading={"Mr. Conner"}
+            subheading={"Monitoring and Evaluation Officer"}
+          />
+          <Card
+            src="./images/woman.jpeg"
+            heading={"Mrs. Caitlyn"}
+            subheading={"Communications Officer"}
+          />
+          <Card
+            src="./svgs/man.svg"
+            heading={"Mr. Kaiden"}
+            subheading={"Fundraiser"}
+          />
+          <Card
+            src="./images/woman.jpeg"
+            heading={"Ms. Aaliyah"}
+            subheading={"Fundraiser"}
+          />
         </div>
       </div>
     </div>
